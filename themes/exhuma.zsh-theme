@@ -30,7 +30,7 @@
 
 #local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"  # TODO: Does not seem to work!
 local user_host='%{$terminfo[bold]$fg[blue]%}%n%{$reset_color%}@%{$fg[green]%}%m%{$reset_color%}'
-local current_dir='%{$fg[blue]%}%~%{$reset_color%}'
+local current_dir='%{$terminfo[bold]$fg[blue]%}%~%{$reset_color%}'
 local git_branch='$(git_prompt_info)%{$reset_color%}'
 local current_time='[%*]'
 local backround_jobs='%(1j.%{$terminfo[bold]$fg[yellow]%}[%j background job(s)]%{$reset_color%} .)'
