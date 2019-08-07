@@ -28,17 +28,19 @@
 # └─ ~exhuma/work/oh-my-zsh›
 #
 
+local ucolor="%(!.%{${fg[red]}%}.%{${fg[green]}%})" # Red if running as root, green if non-root
+
 #local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"  # TODO: Does not seem to work!
-local user_host='%{$terminfo[bold]$fg[blue]%}%n%{$reset_color%}@%{$fg[green]%}%m%{$reset_color%}'
+local user_host="%{$terminfo[bold]$fg[blue]%}%n%{$reset_color%}@$ucolor%m%{$reset_color%}"
 local current_dir='%{$terminfo[bold]$fg[blue]%}%~%{$reset_color%}'
 local git_branch='$(git_prompt_info)%{$reset_color%}'
 local current_time='[%*]'
 local backround_jobs='%(1j.%{$terminfo[bold]$fg[yellow]%}[%j background job(s)]%{$reset_color%} .)'
-
-local ucolor="%(!.%{${fg[red]}%}.%{${fg[green]}%})" # Red if running as root, green if non-root
+local nonzero_exit='%(?.%{$fg[green]%}✓%{$reset_color%}.%{$fg[red]%}✗:%{$fg[yellow]%} %?%{$reset_color%})'
 
 PROMPT="$ucolor┌─%{$reset_color%}${current_time} ${user_host} ${git_branch} ${backround_jobs}
 $ucolor└─%{$reset_color%}${current_dir}$ucolor%(!.#.›) %{$reset_color%}"
+RPROMPT="${nonzero_exit}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}‹"
 ZSH_THEME_GIT_PROMPT_SUFFIX="›%{$reset_color%}"
