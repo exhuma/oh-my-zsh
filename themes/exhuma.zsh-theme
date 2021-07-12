@@ -38,9 +38,9 @@ local current_time='[%*]'
 local backround_jobs='%(1j.%{$terminfo[bold]$fg[yellow]%}[%j background job(s)]%{$reset_color%} .)'
 local nonzero_exit='%(?.%{$fg[green]%}✓%{$reset_color%}.%{$fg[red]%}✗:%{$fg[yellow]%} %?%{$reset_color%})'
 
-PROMPT="$ucolor┌─%{$reset_color%}${current_time} ${user_host} ${git_branch} ${backround_jobs}
+PROMPT="$ucolor┌─%{$reset_color%}${current_time} ${user_host} ${git_branch} ${backround_jobs} ${nonzero_exit}
 $ucolor└─%{$reset_color%}${current_dir}$ucolor%(!.#.›) %{$reset_color%}"
-RPROMPT="${nonzero_exit}"
+RPROMPT=""
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}‹"
 ZSH_THEME_GIT_PROMPT_SUFFIX="›%{$reset_color%}"
